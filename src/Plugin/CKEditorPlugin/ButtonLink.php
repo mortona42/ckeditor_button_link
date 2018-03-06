@@ -46,15 +46,15 @@ class ButtonLink extends DrupalLink {
    * {@inheritdoc}
    */
   public function getButtons() {
-    $path = drupal_get_path('module', 'ckeditor') . '/js/plugins/drupallink';
+    $path = drupal_get_path('module', 'ckeditor_button_link') . '/js/plugins/buttonlink';
     return [
       'ButtonLink' => [
         'label' => $this->t('Button Link'),
-        'image' => $path . '/icons/drupallink.png',
+        'image' => $path . '/icons/buttonlink.png',
       ],
       'ButtonUnlink' => [
         'label' => $this->t('Button Unlink'),
-        'image' => $path . '/icons/drupalunlink.png',
+        'image' => $path . '/icons/buttonunlink.png',
       ],
     ];
   }
