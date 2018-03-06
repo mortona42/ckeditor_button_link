@@ -134,7 +134,7 @@
             dialogClass: 'editor-link-dialog'
           };
 
-          Drupal.ckeditor.openDialog(editor, Drupal.url('editor/dialog/link/' + editor.config.drupal.format), existingValues, saveCallback, dialogSettings);
+          Drupal.ckeditor.openDialog(editor, Drupal.url('ckeditor_button_link/dialog/' + editor.config.drupal.format), existingValues, saveCallback, dialogSettings);
         }
       });
       editor.addCommand('buttonunlink', {

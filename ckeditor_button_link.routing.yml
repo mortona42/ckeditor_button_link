@@ -1,0 +1,7 @@
+ckeditor_button_link.dialog:
+  path: '/ckeditor_button_link/dialog/{editor}'
+  defaults:
+    _form: '\Drupal\ckeditor_button_link\Form\CKEditorButtonLinkDialog'
+    _title: 'Add button link'
+  requirements:
+    _entity_access: 'editor.use'
