@@ -1,0 +1,4 @@
+name: CKEditor Button Link
+description: Add link that has a button class
+type: module
+core: 8.x

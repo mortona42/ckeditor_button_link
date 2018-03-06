@@ -1,0 +1,37 @@
+<?php
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\editor\Entity\Editor;
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function ckeditor_button_link_form_editor_link_dialog_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $argument = $form_state->getBuildInfo()['args'][0];
+  // In case the only argument we get is the Editor instead of the FilterFormat.
+  if ($argument instanceof Editor) {
+    $argument = $argument->getFilterFormat();
+  }
+  $restrictions = $argument->getHtmlRestrictions();
+
+  if (isset($form_state->getUserInput()['editor_object'])) {
+    $input = $form_state->getUserInput()['editor_object'];
+    $form_state->set('link_element', $input);
+    $form_state->setCached(TRUE);
+  }
+  else {
+    // Retrieve the link element's attributes from form state.
+    $input = $form_state->get('link_element') ?: [];
+  }
+
+  $form['attributes']['class'] = [
+    '#type' => 'value',
+    '#value' => 'button'
+//    '#title' => t('CSS classes'),
+//    '#description' => t('List of CSS classes to add to the link, separated by spaces.'),
+//    '#default_value' => 'button',//$get_default_value('class'),
+//    '#maxlength' => 512,
+//    '#access' => TRUE,//$is_accessible('class'),
+//    '#group' => 'ckeditor_button_link',
+  ];
+}
